@@ -1,0 +1,13 @@
+public class Solution {
+	// DO NOT MODFIY THE LIST. 
+	public int maxSubArray(final List<Integer> A) {
+	    int Max_Ending_Here =A.get(0);
+	    int Max_So_Far = A.get(0);
+	    for(int i=1;i<A.size();i++)
+	    {
+	        Max_Ending_Here = Math.max(A.get(i),Max_Ending_Here+A.get(i));
+	        Max_So_Far = Math.max(Max_So_Far,Max_Ending_Here);
+	    }
+	    return Max_So_Far;
+	}
+}

@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner scanner = new Scanner(System.in);
+		
+		int n = scanner.nextInt();
+		for(int i=0;i<n;i++)
+		{
+            String inputString = scanner.next();
+            System.out.println(FindMaxChar(inputString.toCharArray()));
+		}
+	}
+	public static char FindMaxChar(char[] s)
+	{
+	    int[] countChar = new int[256];
+	    char result = '\0';
+	    for(int i =0;i<s.length;i++)
+	    {
+	        int intChar = (int) s[i];
+	        countChar[intChar]++;
+	    }
+	    int max = -1;
+	    for(int i = 0;i<countChar.length;i++)
+	    {
+	        if(max<countChar[i])
+	        {
+	            max = countChar[i];
+	            result = (char) i;
+	        }
+	    }
+	    return result;
+	}
+}

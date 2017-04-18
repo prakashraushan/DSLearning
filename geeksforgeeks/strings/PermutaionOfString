@@ -1,0 +1,38 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String s1 = scanner.next();
+		Permute(s1,0,s1.length() -1);
+	}
+	
+	public static void Permute(String s, int l, int r)
+	{
+	    if(l==r)
+	    {
+	        System.out.print(s +" ");
+	    }
+	    else
+	    {
+	        for(int i = l;i<=r;i++)
+	        {
+	            s =Swap(s,l,i);
+	            Permute(s,l+1,r);
+	            s =Swap(s,l,i);
+	        }
+	    }
+	}
+	
+	public static String Swap(String s, int i, int j)
+	{
+	    char temp;
+	    char[] charArray = s.toCharArray();
+	    temp = charArray[i];
+	    charArray[i]=charArray[j];
+	    charArray[j]=temp;
+	    return String.valueOf(charArray);
+	}
+}

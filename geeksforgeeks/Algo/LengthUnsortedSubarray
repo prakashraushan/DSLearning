@@ -1,0 +1,83 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int T = scanner.nextInt();
+		for(int i=0;i<T;i++)
+		{
+		    int N = scanner.nextInt();
+		    int[] array = new int[N];
+		    for(int j = 0;j<N;j++)
+		    {
+		        array[j]= scanner.nextInt();
+		    }
+		     Sort(array);
+		}
+	}
+	public static void Sort(int arr[])
+	{
+	    int length = arr.length;
+	    int i, s=0, e=length-1;
+	   
+	    
+	    for(i = 0;i<length-1;i++)
+	    {
+	        if(arr[i]>arr[i+1])
+	        {
+	            s=i;
+	            break;
+	        }
+	    }
+	    if (s == length-1)
+        {
+          s=0;
+          e=0;
+          System.out.println(s+" "+e);
+          return;
+        }
+	    for(i = length-1;i>0;i--)
+	    {
+	        if(arr[i]<arr[i-1])
+	        {
+	            e=i;
+	            break;
+	        }
+	    }
+	    
+	    int min, max;
+	    min = arr[s];
+	    max = arr[s];
+	    for(i=s+1;i<=e;i++)
+	    {
+	        if(arr[i]<min)
+	        {
+	            min = arr[i];
+	        }
+	        if(arr[i]>max)
+	        {
+	            max = arr[i];
+	        }
+	    }
+	    for(i=0;i<s;i++)
+	    {
+	        if(arr[i]>min)
+	        {
+	            s=i;
+	            break;
+	        }
+	    }
+	    for(i=length-1;i>=e+1;i--)
+	    {
+	        if(arr[i]<max)
+	        {
+	            e = i;
+	            break;
+	        }
+	    }
+	    System.out.println(s+" "+e);
+	    
+	}
+}
